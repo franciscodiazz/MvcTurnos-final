@@ -1,0 +1,191 @@
+@model MvcTurnos.Models.Turno
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="body-wrapper">
+    <input name="pagina" id="pagina" value="1" hidden>
+    <div class="page-wrapper mdc-toolbar-fixed-adjust">
+        <main class="content-wrapper">
+            <div class="mdc-layout-grid" style="width: 800px">
+                <div class="mdc-layout-grid__inner">
+                    <div
+                        class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet">
+                        <a asp-area="" asp-controller="Home" asp-action="RegistrarDatos">
+                            <div class="mdc-card info-card info-card--success">
+                                <div class="card-inner">
+                                    <h5 class="card-title">Registrar datos</h5>
+
+                                    <div class="card-icon-wrapper">
+                                        <i class="material-icons">dvr</i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div
+                        class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet">
+                        <a asp-area="" asp-controller="Home" asp-action="CambiarTurno">
+                            <div class="mdc-card info-card info-card--danger">
+                                <div class="card-inner">
+                                    <h5 class="card-title">Cambiar turno</h5>
+
+                                    <div class="card-icon-wrapper">
+                                        <i class="material-icons">attach_money</i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div
+                        class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet">
+                        <a asp-area="" asp-controller="Home" asp-action="EliminarTurno">
+                            <div class="mdc-card info-card info-card--primary">
+                                <div class="card-inner">
+                                    <h5 class="card-title">Eliminar turno</h5>
+
+                                    <div class="card-icon-wrapper">
+                                        <i class="material-icons">attach_money</i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div
+                        class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet">
+                        <a asp-area="" asp-controller="Home" asp-action="Certificado">
+                            <div class="mdc-card info-card info-card--info">
+                                <div class="card-inner">
+                                    <h5 class="card-title">Certificado de Estudios</h5>
+
+                                    <div class="card-icon-wrapper">
+                                        <i class="material-icons">attach_money</i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    
+                    <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12">
+                        <div class="mdc-card">
+                            <div class="d-flex justify-content-between">
+                                <h4 class="card-title mb-0">Turnos en Linea</h4>
+                                <div>
+                                    <a asp-area="" asp-controller="Turnos" asp-action="Create">
+                                        <i class="material-icons refresh-icon">refresh</i>
+                                    </a>
+                                    
+                                    <i class="material-icons options-icon ml-2">more_vert</i>
+                                </div>
+                            </div>
+                            <div class="d-block d-sm-flex justify-content-between align-items-center">
+                                <h5 class="card-sub-title mb-2 mb-sm-0">
+                                    Seleccione el dia y hora
+                                </h5>
+                            </div>
+                            <div class="mdc-layout-grid__inner mt-2">
+                                <div
+                                    class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12 mdc-layout-grid__cell--span-8-tablet">
+                                    <div class="table-responsive">
+                                       
+                                        <form asp-controller="Turnos" asp-action="Create">
+                                            <div class="row">
+                                                
+      
+                                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                                <div class="form-group">
+                                                    <label asp-for="UsuarioId" class="control-label">Cedula</label>
+                                                    <input asp-for="UsuarioId" class="form-control" />
+                                                    <span asp-validation-for="UsuarioId" class="text-danger"></span>
+                                                </div>
+                                                <div class="form-group ">
+                                                    <label asp-for="Asunto" class="control-label"></label>
+                                                   
+                                                     <select asp-for="Asunto" class="form-control d-block">
+                                                        <option value=""  selected>Selecciona el asunto</option>
+                                                        <option value="Financiero">Financiero</option>
+                                                        <option value="Icetext">ICETEX</option>
+                                                        <option value="Inscripciones">Inscripciones</option>
+                                                    </select>
+                                                    
+                                                    <span asp-validation-for="Asunto" class="text-danger"></span>
+                                                </div>
+                                                <div class="form-group ">
+                                                    <label asp-for="Hora" class="control-label"></label>
+                                                    <input asp-for="Hora" type="time" class="form-control" list="listalimitestiempo" step="0.300" />
+                                                    <span asp-validation-for="Hora" class="text-danger"></span>
+                                    
+                                                
+                                                </div>
+                                                <div class="form-group">
+                                                    <label asp-for="Fecha" class="control-label"></label>
+                                                    <input asp-for="Fecha" class="form-control" />
+                                                    <span asp-validation-for="Fecha" class="text-danger"></span>
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="submit" value="Create" class="btn btn-primary" />
+                                                </div>
+                                            </div>
+                                        </form>
+                                        
+                                        <datalist id="listalimitestiempo">
+                                            <option value="06:00" ></option>
+                                            <option value="06:30" ></option>
+                                            <option value="07:00"></option>
+                                            <option value="07:30"></option>
+                                            <option value="08:00"></option>
+                                            <option value="08:30"></option>
+                                            <option value="09:00"></option>
+                                            <option value="09:30"></option>
+                                            <option value="10:00"></option>
+                                            <option value="10:30"></option>
+                                            <option value="11:00"></option>
+                                            <option value="11:30"></option>
+                                            <option value="12:00"></option>
+                                            <option value="12:30"></option>
+                                            <option value="13:00"></option>
+                                            <option value="13:30"></option>
+                                            <option value="14:00"></option>
+                                            <option value="14:30"></option>
+                                            <option value="15:00"></option>
+                                            <option value="15:30"></option>
+                                            <option value="16:00"></option>
+                                            <option value="16:30"></option>
+                                            <option value="17:00"></option>
+                                            <option value="17:30"></option>
+                                            <option value="18:00"></option>
+                                        </datalist>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="mdc-layout-grid">
+                <div class="mdc-layout-grid__inner">
+                    <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+                        <span class="tx-14">
+                            <a href="https://localhost/" target="_blank"></a></span>
+                    </div>
+                    <div
+                        class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop d-flex justify-content-end">
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+</div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

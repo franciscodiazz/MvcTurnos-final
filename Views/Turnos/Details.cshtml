@@ -1,0 +1,61 @@
+@model MvcTurnos.Models.Turno
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+ <a class="material-icons  mdc-icon-button sidebar-toggler" asp-action="Index" asp-controller="Home">
+    keyboard_backspace
+</a>
+
+<h2 style="text-anchor: middle; text-align: center;">Detalle</h2>
+
+<hr />
+
+<div class="body-wrapper">
+
+    <div class="page-wrapper mdc-toolbar-fixed-adjust">
+        <main class="content-wrapper">
+            <div class="mdc-layout-grid">
+               
+
+                <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12">
+                    <div class="mdc-layout-grid">
+                        <div class="mdc-layout-grid__inner">
+                            <div class="mdc-layout-grid__cell--span-12">
+                                <div class="mdc-card">
+                                    <dl class="row">
+                                        <dt class="col-sm-2" style="color: blue; font-size: 20px; font-weight: bold;">
+                                            @Html.DisplayNameFor(model => model.Asunto)
+                                        </dt>
+                                        <dd class="col-sm-10">
+                                            @Html.DisplayFor(model => model.Asunto)
+                                        </dd>
+                                        <dt class="col-sm-2" style="color: blue; font-size: 20px; font-weight: bold;">
+                                            @Html.DisplayNameFor(model => model.Hora)
+                                        </dt>
+                                        <dd class="col-sm-10">
+                                            @Html.DisplayFor(model => model.Hora)
+                                        </dd>
+                                        <dt class="col-sm-2" style="color: blue; font-size: 20px; font-weight: bold;">
+                                            @Html.DisplayNameFor(model => model.Fecha)
+                                        </dt>
+                                        <dd class="col-sm-10">
+                                            @Html.DisplayFor(model => model.Fecha)
+                                        </dd>
+                                        <dt class="col-sm-2" style="color: blue; font-size: 20px; font-weight: bold;">
+                                            Cedula
+                                        </dt>
+                                        <dd class="col-sm-10">
+                                            @Html.DisplayFor(model => model.UsuarioId)
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        </main>
+
+    </div>
+</div>
+</div>

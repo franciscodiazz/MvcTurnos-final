@@ -1,0 +1,110 @@
+@model IEnumerable<MvcTurnos.Models.Turno>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="body-wrapper">
+
+    <div class="page-wrapper mdc-toolbar-fixed-adjust">
+        <main class="content-wrapper">
+            <div class="mdc-layout-grid">
+                <a class="material-icons  mdc-icon-button sidebar-toggler" asp-action="Index" asp-controller="Home">
+                    keyboard_backspace
+                </a>
+                @if (@ViewBag.action == 0)
+                {
+                    <h4 style="text-anchor: middle; text-align: center;">Editar Turno</h4>
+                }
+                else
+                {
+                    <h4 style="text-anchor: middle; text-align: center;">Eliminar Turno</h4>
+                }
+
+                <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12">
+                    <div class="mdc-layout-grid">
+                        <div class="mdc-layout-grid__inner">
+                            <div class="mdc-layout-grid__cell--span-12">
+                                <div class="mdc-card">
+
+                                    <table class="table table-striped">
+                                        <thead >
+                                            <tr>
+                                                <th >
+                                                    @Html.DisplayNameFor(model => model.Asunto)
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.Hora)
+                                                </th >
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.Fecha)
+                                                </th>
+                                                <th >
+                                                    Cedula
+                                                </th>
+                                                <th >
+                                                    Acciones
+                                                </th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in Model)
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.Asunto)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.Hora)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.Fecha)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.UsuarioId)
+                                                    </td>
+                                                    <td>
+
+                                                        @if (@ViewBag.action == 0)
+                                                        {
+                                                            
+                                                            <a asp-action="Edit" asp-route-id="@item.Id">Editar</a>
+                                                        }
+                                                        else
+                                                         {
+                                                            <a onclick="borrar(@item.Id)">Eliminar</a>
+                                                        }
+                                                        <a asp-action="Details" asp-route-id="@item.Id">Detalles</a>
+
+
+                                                    </td>
+                                                </tr>
+                                            }
+
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        </main>
+
+    </div>
+</div>
+</div>
+
+</div>
+<script>
+function borrar(id) {
+  var txt;
+  if (confirm("¿Desea eliminar el turno?")) {
+     $.ajax({url: "turnos/Delete", type: "POST", data: {id}, success: () => {alert("Borrado correctamente"); window.location.reload()}, error: () => {alert("Error")}})
+  } else {
+    txt = "You pressed Cancel!";
+  }
+  
+
+}
+</script>

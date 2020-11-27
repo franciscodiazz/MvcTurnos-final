@@ -1,0 +1,127 @@
+@model MvcTurnos.Models.Usuario
+
+@{
+    ViewData["Title"] = "Usuario";
+}
+
+
+
+
+
+
+<div class="body-wrapper">
+
+    <div class="page-wrapper mdc-toolbar-fixed-adjust">
+        <main class="content-wrapper">
+            <div class="mdc-layout-grid">
+                <a class="material-icons  mdc-icon-button sidebar-toggler" asp-action="Index" asp-controller="Home">
+                    keyboard_backspace
+                </a>
+                <h2 style="text-anchor: middle; text-align: center;">Datos del usuario</h2>
+                
+                <hr />
+                <p style="font-size: 20px;">Ingresa sus datos para pedir un turno</p>
+                <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12">
+                    <div class="mdc-layout-grid">
+                        <div class="mdc-layout-grid__inner">
+                             
+                            <div class="mdc-layout-grid__cell--span-12">
+                                <div class="mdc-card">
+                                    <div class="template-demo">
+                                        <form asp-action="Create">
+                                            <div class="mdc-layout-grid__inner">
+                                               
+                                                <div
+                                                class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+                                                    <div class="form-group">
+                                                        <label asp-for="Nombre" class="control-label">Nombre</label>
+                                                        <input asp-for="Nombre" class="form-control" />
+                                                        <span asp-validation-for="Nombre" class="text-danger"></span>
+                                                    </div>
+                                                </div>
+                                                <div
+                                                class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+                                                    <div class="form-group">
+                                                        <label asp-for="Apellido" class="control-label">Apellido</label>
+                                                        <input asp-for="Apellido" class="form-control" />
+                                                        <span asp-validation-for="Apellido" class="text-danger"></span>
+                                                    </div>
+
+                                                </div>
+
+                                                <div
+                                                class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+                                                    <div class="form-group">
+                                                        <label asp-for="Cedula" class="control-label">Numero de identificación</label>
+                                                        <input asp-for="Cedula" class="form-control" />
+                                                        <span asp-validation-for="Cedula" class="text-danger"></span>
+                                                    </div>
+                                                </div>
+                                                <div
+                                                class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+                                                    <div class="form-group">
+                                                        <label asp-for="Correo" class="control-label">Correo electronico</label>
+                                                        <input asp-for="Correo" class="form-control" />
+                                                        <span asp-validation-for="Correo" class="text-danger"></span>
+                                                    </div>
+                                                </div>
+                                                <div
+                                                class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+                                                   <div class="form-group">
+                                                        <label asp-for="Telefono" class="control-label">Telefono</label>
+                                                        <input asp-for="Telefono" class="form-control" />
+                                                        <span asp-validation-for="Telefono" class="text-danger"></span>
+                                                    </div>
+                                                </div>
+                                                <div
+                                                class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+                                                    <div class="form-group">
+                                                        <label asp-for="Edad" style="width: 20px;" class="control-label">Edad</label>
+                                                        <input asp-for="Edad" type="number" class="form-control" />
+                                                        <span asp-validation-for="Edad" class="text-danger"></span>
+                                                    </div>
+                                                </div>
+                                                <div
+                                                class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+                                                    <div class="form-group">
+                                                        <label asp-for="Programa" class="control-label">Programa</label>
+                                                        <input asp-for="Programa" class="form-control" />
+                                                        <span asp-validation-for="Programa" class="text-danger"></span>
+                                                    </div>
+                                                </div>
+                                                <div
+                                                class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+                                                    <div class="form-group">
+                                                        <label asp-for="Semestre" class="control-label">Semestre</label>
+                                                        <input asp-for="Semestre" class="form-control" />
+                                                        <span asp-validation-for="Semestre" class="text-danger"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class="mdc-card row">
+                                                <div class="template-demo">
+
+                                                    <button class="mdc-button mdc-button--raised filled-button--success center" type="submit" value="Create">
+                                                        Guardar
+                                                    </button>
+                                                </div>
+                                                
+                                            </div>
+                                        </form>
+                                       
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        </main>
+
+    </div>
+</div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
